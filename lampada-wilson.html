@@ -1,0 +1,112 @@
+<!-- Os jovens precisam escrever o que foi ditado pelo professor. "Vamos criar um site...-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wilson_light_bulb</title>
+
+    <!-- Cabecalho -->
+
+    <style>
+      :root {
+        --eu-wilson: black;
+        --enzo: red;
+        --ari: blue;
+      }
+
+      /* Coloração */
+
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: var(--ari);
+      }
+
+      body {
+        background: var(--enzo);
+        background-image: linear-gradient(to top,
+          var(--enzo), var(--ari));
+        background-attachment: fixed;
+      }
+
+      /* Plano de fundo */
+
+      header,
+      section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Display */
+
+      button {
+        width: 80px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Lâmpada</h1>
+    </header>
+    <section>
+      <div>
+        <img src="./img/lamp_off.jpeg" alt="Lâmpada Off" id="lamp"/>
+      </div>
+
+      <div>
+        <button id="turnOn">Ligar</button>
+        <button id="turnOff">Desligar</button>
+      </div>
+    </section>
+  </body>]
+
+  <script>
+
+    // Selecionando os elementos do DOM
+
+    const turnOn = document.getElementById('turnOn');
+    const turnOff = document.getElementById('turnOff');
+    const lamp = document.getElementById('lamp');
+
+    // Função para verificar se a Lâmpada está quebrada
+
+    function isLampBroken() {
+      return lamp.src.indexOf ('quebrada') > -1
+
+    }
+
+    // Função para ligar a Lâmpada
+    function lampOn() {
+      if (!isLampBroken()) {
+        lamp.src = './img/lamp_on.jpeg';
+      }
+
+    }
+
+    // Função para desligar a Lâmpada
+    function lampOff () {
+      if (!isLampBroken()) {
+        lamp.src = './img/lamp_off.jpeg';
+      }
+    }
+
+    // Função para quebrar a Lâmpada
+    function lampBroken() {
+      lamp.src = './img/lamp_broke.jpeg'
+    } 
+
+    // Liga e desliga a Lampada
+    turnOn.addEventListener('click', lampOn);
+    turnOff.addEventListener('click', lampOff);
+    lamp.addEventListener('mouseover', lampOn);
+    lamp.addEventListener('mouseleave', lampOff);
+    lamp.addEventListener('dblclick', lampBroken);
+      </script>
+
+</html>
