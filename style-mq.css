@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+/* Criando um mobile-first
+device breakpoints
+mobile 600 px
+tablet 780 px
+desktop 992  px
+smart_tv 1200 px
+
+*/
+
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ border-radius: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+ul li {
+  float: left;
+}
+
+ul li a {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #000000;
+
+}
+#circulos img {
+  width: 450px;
+  height: 400px;
+  border-radius: 20px;
+  margin: 20px;
+ 
+}
+
+#circulos {
+  display: flexbox;
+  justify-content: top;
+  align-items: top;
+  position: top;
+  text-align: center;
+} 
+
+body {
+  font-family: inherit;
+  font-size: 20px;
+
+}
