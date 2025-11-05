@@ -5,11 +5,11 @@
     padding: 0;
 }
 body{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
-    justify-self: flex-start;
-    align-self: center;
+    justify-content: flex-start;
+    align-items: center;
     min-height: 100vh;
     background-color: #f0f8ff;
     overflow-y: auto;
@@ -19,18 +19,17 @@ body{
     background-color: #e0f2f7;
     padding: 15px;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba (0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 98%;
     max-width: 700px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
 h1 {
     color: #004d40;
     margin-bottom: 15px;
-    font-size: clamp (1.5em, 7vw, 2.5em);
+    font-size: clamp(1.5em, 7vw, 2.5em);
 }
 .score-board{
     font-size: clamp(1em, 4vw, 1.5em);
@@ -42,12 +41,13 @@ h1 {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
+    gap: clamp(5px, 2vw, 10px);
     width: 100%;
     aspect-ratio: 1 / 1;
     perspective: 1000px;
     margin: 0 auto;
 }
-.meemory-card{
+.memory-card{
     width: 100%;
     height: 100%;
     position: relative;
@@ -55,38 +55,57 @@ h1 {
     transition: transform 0.5s;
     cursor: pointer;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba (0, 0, 0, 0.1);
-    transform-origin: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform-origin: center center;
 }
-.meemory-card.flip{
+.memory-card.flip{
     transform: rotateY(180deg);
 }
-.meemory-card.match{
+.memory-card.match{
     cursor: default;
     pointer-events: none;
 }
-.font-face, . back-face {
+.front-face, .back-face {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    border-radius: 8ppx;
-    backface-visibility: contain;
+    border-radius: 8px;
+    backface-visibility: hidden;
+    object-fit: contain;
     background-color: #ffffff;
 }
-.font-face{
+.front-face{
+    transform: rotateY(180deg);
+}
+.back-face{
     background-color: #00796b;
 }
 #restart-button{
     margin-top: 30px;
     padding: 12px 25px;
-    font-size: clamp(1em, 3vw, 1.2em)
+    font-size: clamp(1em, 3vw, 1.2em);
     background-color: #ff5722;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px rgba (0, 0, 0, 0,1)
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+#restart-button:hover {
+    background-color: #e64a19;
+    transform: translateY(-2px);
+}
+@media (min-width: 768px) {
+    body {
+        justify-content: center;
+    }
+    .game-container{
+        padding: 30px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    }
