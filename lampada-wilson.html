@@ -4,16 +4,17 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wilson_light_bulb</title>
+    <link rel="shortcut icon" href="/img/favicon2.png" type="image/x-icon">
 
     <!-- Cabecalho -->
 
     <style>
       :root {
         --eu-wilson: black;
-        --enzo: red;
-        --ari: blue;
+        --enzo: rgb(252, 48, 48);
+        --ari: rgb(44, 44, 252);
       }
 
       /* Coloração */
@@ -22,7 +23,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        background-color: var(--ari);
+      
       }
 
       body {
@@ -64,7 +65,7 @@
         <button id="turnOff">Desligar</button>
       </div>
     </section>
-  </body>]
+  </body>
 
   <script>
 
@@ -77,7 +78,7 @@
     // Função para verificar se a Lâmpada está quebrada
 
     function isLampBroken() {
-      return lamp.src.indexOf ('quebrada') > -1
+      return lamp.src.indexOf ('quebrada') > -1;
 
     }
 
@@ -98,7 +99,7 @@
 
     // Função para quebrar a Lâmpada
     function lampBroken() {
-      lamp.src = './img/lamp_broke.jpeg'
+      lamp.src = './img/lamp_broke.jpeg';
     } 
 
     // Liga e desliga a Lampada

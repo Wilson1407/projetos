@@ -1,10 +1,8 @@
 const memoryGame = document.getElementById('memory-game');
 const movesCountElement = document.getElementById('moves-count');
 const restartButton = document.getElementById('restart-button');
-
 let cardArray = [];
 const numPairs = 12;
-
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -12,10 +10,10 @@ let matchesFound = 0;
 let moves = 0;
 
 const cardImages = [
-    './img/img/1bouguereu.png', './assets/img/2diogines.png', './assets/img/3van.png', 
-    './assets/img/4japao.png', './assets/img/5tarot.png', './assets/img/-6carmen.png',
-    './assets/img/7Bouguereu.png', './assets/img/8waterhouse.png', './assets/img/9gogh.png', 
-    './assets/img/10nippon.png', './assets/img/11castelli.png', './assets/img/-12winterhalter.png',
+    'assets/img/card1.png', 'assets/img/card2.png', 'assets/img/card3.png', 
+    'assets/img/card4.png', 'assets/img/card5.png', 'assets/img/card6.png',
+    'assets/img/card7.png', 'assets/img/card8.png', 'assets/img/card9.png', 
+    'assets/img/card10.png', 'assets/img/card11.png', 'assets/img/card12.png'
 ];
 
 function initializeGame() {
@@ -24,39 +22,32 @@ function initializeGame() {
     moves = 0;
     movesCountElement.textContent = moves;
     memoryGame.innerHTML = '';
-
-    for
-    (let i = 0; i < numPairs; i++) {
+    for (let i = 0; i < numPairs; i++) {
         cardArray.push({ id: i, image: cardImages[i] });
         cardArray.push({ id: i, image: cardImages[i] });
     }
-    shuffleCards(cardArray);
 
+    shuffleCards(cardArray);
     cardArray.forEach(card => {
         const memoryGame = document.createElement('div');
-        memorycard.classList.add('memory-card');
-        memorycard.dataset.id = card.id;
-
+        memoryCard.classList.add('memory-card');
+        memoryCard.dataset.id = card.id;
         const frontFace = document.createElement('img');
         frontFace.classList.add('front-face');
         frontFace.src = card.image;
-        frontFace.alt = 'card front';
-
+        frontFace.alt = 'Card Front';
         const backFace = document.createElement('img');
         backFace.classList.add('back-face');
-        backFace.src = './assets/img/card-back.jpg';
+        backFace.src = '.assets/img/back_card.png';
         backFace.alt = 'card Back';
-
         memoryCard.appendChild(frontFace);
         memorycard.appendChild(backFace);
-
         memoryCard.classList.remove('flip', 'match');
-
         memoryCard.addEventListener('click', flipCard);
-
         memoryGame.appendChild(memoryCard);
     });
 }
+
 function shuffleCards(array) {
 
     for (let i = array.length - 1; i > 0; i--) {
@@ -68,9 +59,7 @@ function shuffleCards(array) {
     function flipCard() {
         if (lockBoard) return;
         if (this === firstCard) return;
-
         this.classList.add('flip');
-
         if (!hasFlippedCard) {
             hasFlippedCard = true;
             firstCard = this;
@@ -82,8 +71,8 @@ function shuffleCards(array) {
         movesCountElement.textContent = moves;
 
         checkForMatch();
-     
     }
+
     function checkForMatch() {
 
         let isMatch = firstCard.dataset.id === secondCard.dataset.id;
@@ -121,6 +110,7 @@ function shuffleCards(array) {
                 resetBoard();
             }, 1000);
         }
+
         function resetBoard() {
             [hasFlippedCard, lockBoard] = [false, false];
             [firstCard, secondCard] = [null, null];

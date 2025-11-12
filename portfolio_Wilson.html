@@ -9,16 +9,23 @@
 </head>
 <body>
     <header>
-        <menu>
-            <ul>
+        <nav class="navbar">
+            <div class="logo">Meu Portfolio</div>
+            <div class="menu-toggle" id="menu-toggle">
+            </div>
+            <ul class="nav-links" id="nav-links">
                 <li><a  href="portfolio_Wilson.html">Portfolio</a></li>
                 <li><a  href="clean_code.html">Clean Code</a></li>
                 <li><a  href="ux_ui.html">Ux Ui</a></li>
                 <li><a  href="mobilefirst.html">Mobile First</a></li>
                 <li><a  href="contato.html">Contato</a></li>
             </ul>
-            <section>
-                <article>
+            </nav>
+            </header>
+            <main>
+                <section>
+                    <article>
+
                     <h1>MEU PORTFOLIO</h1> 
 <h4>1. Me chamo Wilson, sou estudante de Web Design, em busca de criar experiências digitais que unem estética, funcionalidade e usabilidade. 
     Ao longo da minha formação, venho desenvolvendo habilidades em HTML e CSS.
@@ -65,6 +72,21 @@ Nele, é possivel ativar e desativar o modo escuro ao clicar no botão. </h4>
 <img src="img/mobilefirst.png" alt="mobile first">
 
                 </article>
+                   
+                </section>
+            </main>
+
+            <script>
+                const toggle = document.getElementById('menu-toggle')
+                const nav = document.getElementById('nav-links')
+
+                toggle.addEventListener('click', () => {
+                    nav,classList,toggle('active');
+                });
+                </script>
+            <section>
+
+               
 </section>
 </menu>
 </header>
